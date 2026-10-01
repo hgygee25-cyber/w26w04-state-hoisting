@@ -45,7 +45,7 @@ function App() {
         onIncrement={
           () => setCount2(prev => prev+1)
         }
-      />      
+      />
       </div>
   )
 }
