@@ -120,7 +120,7 @@ function Counter({ count, onIncrement }) {
       <h1>Counter: {count}</h1>
       <button 
         onClick={onIncrement}>
-          증가
+          증가 
       </button>
     </div>
   )
