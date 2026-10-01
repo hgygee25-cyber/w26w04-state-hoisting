@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div>
-      <h1>총합: {count1 + count2}</h1>
+      <h1>총합: {total}</h1>
       {
         // map 메서드로 counts 배열을 순회하며 Counter 컴포넌트 렌더링
         counts.map((count, index) => (
