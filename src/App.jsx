@@ -96,6 +96,10 @@ function App() {
     setCounts(prevCounts => [...prevCounts, 0]) 
   }
 
+  const onRemoveCounter = (index) => {
+    setCounts(prevCounts => prevCounts.filter((_, i) => i !== index))
+  }
+  
   // counts 배열의 모든 값을 더함
   const total = counts.reduce((sum, current) => sum + current, 0)
 
@@ -114,6 +118,7 @@ function App() {
             key={index} // index를 key로 사용 (실제 앱에서는 고유한 id 사용 권장)
             count={count}
             onIncrement={() => { onIncrement(index) }}
+                     onRemove={() => { onRemoveCounter(index) }}
           />
         ))
       }
@@ -121,16 +126,23 @@ function App() {
   )
 }
  
-function Counter({ count, onIncrement }) {
-
+//function Counter({ count, onIncrement }) {
+function Counter({ count, onIncrement, onRemove }) {
+  const [bgColor, setBgColor] = useState(
+          () => '#' + Math.floor(Math.random()*16777215)
+            .toString(16)
+            .padStart(6, '0')
+  )
   return (
-    <div>
+    <div style={{ backgroundColor: bgColor }}>
       <h1>Counter: {count}</h1>
-      <button 
-        onClick={onIncrement}>
+      <button onClick={onIncrement}>
           증가 
       </button>
-    </div>
+      <button onClick={onRemove}>
+        제거
+      </button>
+     </div>
   )
 }
 
